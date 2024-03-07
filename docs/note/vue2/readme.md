@@ -1,8 +1,6 @@
-# 基础
+# 指令
 
-## 指令
-
-### v-model
+## v-model
 
 双向绑定，可以绑定在任意支持input事件和value属性的标签上，包括自定义组件
 
@@ -32,7 +30,7 @@ export default {
 
 
 
-#### 组件的v-model
+### 组件的v-model
 
 ```vue
 <!-- 父组件 -->
@@ -92,7 +90,7 @@ export default {
 
 
 
-### v-if&v-else&v-else-if
+## v-if&v-else&v-else-if
 
 条件判断才会渲染
 
@@ -111,7 +109,7 @@ export default {
 </div>
 ```
 
-### v-show
+## v-show
 
 根据条件展示元素
 
@@ -119,13 +117,13 @@ export default {
 <h1 v-show="ok">Hello!</h1>
 ```
 
-### v-if vs v-show
+## v-if vs v-show
 
 v-if = false 惰性不创建dom，v-show = false 渲染不显示相当于display=none，v-if有切换开销，v-show有初始化开销
 
 
 
-### v-bind
+## v-bind
 
 v-bind:属性 可以简写成 :属性，如v-bind:class可以写成v-bind:
 
@@ -171,7 +169,7 @@ export default {
 
 
 
-### v-for 
+## v-for 
 
 循环一个数组，达到渲染这个数组的目的，注意给循环的dom绑定key属性，主要用在 Vue 的虚拟 DOM 算法，在新旧 nodes 对比时辨识 VNodes。一句话总结就是避免渲染错误，所以要加上唯一标识，不推荐使用index作为key
 
@@ -205,7 +203,7 @@ export default {
 <div v-for="item of list"></div>
 ```
 
-### v-on
+## v-on
 
 事件处理器，v-on:click可以简写成@click，实际开发中有多种事件写法，如下
 
@@ -248,7 +246,7 @@ export default {
 </script>
 ```
 
-#### 事件修饰符
+### 事件修饰符
 
 - .stop
 
@@ -314,7 +312,7 @@ export default {
 <div v-on:scroll.passive="onScroll">...</div>
 ```
 
-#### 按键修饰符
+### 按键修饰符
 
 vue支持给键盘事件添加修饰符，格式如下
 
@@ -330,7 +328,7 @@ vue支持给键盘事件添加修饰符，格式如下
 
 ```
 
-##### 键盘事件
+#### 键盘事件
 
 1. **keydown：** 按下键盘上的任意键时触发，按住不放会重复触发。
 2. **keyup：** 释放键盘上的键时触发。
@@ -340,7 +338,7 @@ vue支持给键盘事件添加修饰符，格式如下
    - `event.code`：表示按下或释放的是哪个物理键，不受键盘布局的影响。
    - `event.ctrlKey`、`event.shiftKey`、`event.altKey`、`event.metaKey`：表示是否同时按下了 Ctrl、Shift、Alt 和 Meta（在 Windows 上通常是 Windows 键）键。
 
-##### 按键码
+#### 按键码
 
 使用 `keyCode` 作为修饰符 
 
@@ -371,7 +369,7 @@ vue支持给键盘事件添加修饰符，格式如下
 Vue.config.keyCodes.f1 = 112
 ```
 
-#### 系统修饰键
+### 系统修饰键
 
 可以用如下修饰符来实现仅在按下相应按键时才触发鼠标或键盘事件的监听器。
 
@@ -394,7 +392,7 @@ Vue.config.keyCodes.f1 = 112
 
 > 请注意修饰键与常规按键不同，在和 `keyup` 事件一起用时，事件触发时修饰键必须处于按下状态。换句话说，只有在按住 `ctrl` 的情况下释放其它按键，才能触发 `keyup.ctrl`。而单单释放 `ctrl` 也不会触发事件。如果你想要这样的行为，请为 `ctrl` 换用 `keyCode`：`keyup.17`。
 
-##### .exact 修饰符
+#### .exact 修饰符
 
 .exact 修饰符允许你控制由精确的系统修饰符组合触发的事件。
 
@@ -409,7 +407,7 @@ Vue.config.keyCodes.f1 = 112
 <button v-on:click.exact="onClick">A</button>
 ```
 
-##### 鼠标按钮修饰符
+#### 鼠标按钮修饰符
 
 - `.left`
 - `.right`
@@ -417,128 +415,19 @@ Vue.config.keyCodes.f1 = 112
 
 这些修饰符会限制处理函数仅响应特定的鼠标按钮。
 
-### v-pre
+## v-pre
 
 跳过这个元素和它的子元素的编译过程
 
-### v-cloak
+## v-cloak
 
 和 CSS 规则如 [v-cloak] { display: none } 一起用时，在Vue加载完成前不会显示，所以不会出现暂时性未编译的{{}}符号
 
-### v-once
+## v-once
 
 只渲染元素和组件一次
 
 过度效果：Vue 在插入、更新或者移除 DOM 时，提供多种不同方式的应用过渡效果。
 
-## computed
-
-```vue
-<template>
-    <div id="example">
-        <p>Original message: "{{ message }}"</p>
-        <p>Computed reversed message: "{{ reversedMessage }}"</p>
-    </div>
-</template>
-
-<script>
-export default {
-    data() {
-        return {
-            message: 'Hello'
-        }
-    },
-    computed: {
-        reversedMessage: function () {
-            return this.message.split('').reverse().join('')
-        }
-    }
-}
-</script>
-```
-
-## methods
-
-可以在模板中调用方法
-
-```vue
-<template>
-    <div id="example">
-        <p>调用方法获取返回值: "{{ reversedMessage() }}"</p>
-    </div>
-</template>
-
-<script>
-export default {
-    data() {
-        return {
-            message: 'Hello'
-        }
-    },
-    methods: {
-        reversedMessage: function () {
-            return this.message.split('').reverse().join('')
-        }
-    }
-}
-</script>
-```
 
 
-
-## computed vs methods
-
-computed计算属性是基于依赖进行缓存的，只有依赖发生改变才会重新计算
-
-methods方法都每次都执行，如果是复杂的计算会浪费性能
-
-## watch
-
-监听目标发生改变就执行函数
-
-**选项：handler**
-
- 当监听的数据发生变化会调用此函数，函数接收两个参数，newVal,oldVal
-
-**选项：immediate**
-
-在选项参数中指定 `immediate: true` 将立即以表达式的当前值触发回调：
-
-**选项：deep**
-
-为了发现对象内部值的变化，可以在选项参数中指定 `deep: true`。注意监听数组的变更不需要这么做。
-
-```vue
-<template>
-    <div id="example">
-        <button @click="onClick">点击一下</button>
-    </div>
-</template>
-
-<script>
-export default {
-    data() {
-        return {
-            count: 0
-        }
-    },
-    watch: {
-        count: {
-            handler(newVal,oldVal) { 
-                console.log(newVal,oldVal)
-            },
-            immediate: true,
-            deep: true
-        }
-    },
-}
-</script>
-```
-
-## MVC MVP MVVM 架构模型对比
-
-MVC：Controller薄，View厚，业务逻辑大都部署在View
-
-MVVM：双向数据绑定，View的变动，映射在 ViewModel，反之一样
-
-MVP：View薄，不部署任何业务逻辑，称为“被动视图”(Passive View)，Presenter厚，逻辑都部署在这里

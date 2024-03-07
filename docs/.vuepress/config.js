@@ -54,17 +54,40 @@ module.exports = {
       ],
       "/note/vue2/": [
         {
-          title: "vue2",
-          collapsable: false,
-          sidebarDepth: 10,
-          children: ["", "/note/vue2/vue-component.md"],
+          title: "基础",
+          collapsable: true,
+          sidebarDepth: 6,
+          children: [
+            "",
+            "/note/vue2/02.options.md",
+            "/note/vue2/05.component.md",
+          ],
+        },
+        {
+          title: "进阶",
+          collapsable: true,
+          sidebarDepth: 6,
+          children: [
+            "/note/vue2/11.reuse.md",
+            "/note/vue2/12.router.md",
+            "/note/vue2/13.vuex.md",
+            "/note/vue2/14.mobile-adaptation.md",
+          ],
+        },
+        {
+          title: "总结",
+          collapsable: true,
+          sidebarDepth: 6,
+          children: [
+            "/note/vue2/99.sumup.md",
+          ],
         },
       ],
       "/note/vue3/": [
         {
           title: "vue3",
           collapsable: true,
-          sidebarDepth: 5,
+          sidebarDepth: 6,
           children: [""],
         },
       ],
