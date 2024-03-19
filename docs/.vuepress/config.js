@@ -71,7 +71,9 @@ module.exports = {
             "/note/vue2/11.reuse.md",
             "/note/vue2/12.router.md",
             "/note/vue2/13.vuex.md",
-            "/note/vue2/14.mobile-adaptation.md",
+            "/note/vue2/14.jsx.md",
+            "/note/vue2/15.mobile-adaptation.md",
+            "/note/vue2/16.more.md",
           ],
         },
         {
