@@ -56,7 +56,7 @@ module.exports = {
         {
           title: "基础",
           collapsable: true,
-          sidebarDepth: 6,
+          sidebarDepth: 2,
           children: [
             "",
             "/note/vue2/02.options.md",
@@ -66,7 +66,7 @@ module.exports = {
         {
           title: "进阶",
           collapsable: true,
-          sidebarDepth: 6,
+          sidebarDepth: 2,
           children: [
             "/note/vue2/11.reuse.md",
             "/note/vue2/12.router.md",
@@ -74,22 +74,22 @@ module.exports = {
             "/note/vue2/14.jsx.md",
             "/note/vue2/15.mobile-adaptation.md",
             "/note/vue2/16.more.md",
+            "/note/vue2/17.vue-cli.md",
+            "/note/vue2/18.vue-principle.md",
           ],
         },
         {
           title: "总结",
           collapsable: true,
-          sidebarDepth: 6,
-          children: [
-            "/note/vue2/99.sumup.md",
-          ],
+          sidebarDepth: 2,
+          children: ["/note/vue2/99.sumup.md"],
         },
       ],
       "/note/vue3/": [
         {
           title: "vue3",
           collapsable: true,
-          sidebarDepth: 6,
+          sidebarDepth: 2,
           children: [""],
         },
       ],
